@@ -54,3 +54,119 @@ class MyHomePage extends StatelessWidget {
           )),
     );
   }
+
+
+
+  _buildTypeHabitat(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(6.0),
+      height: 100,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: List.generate(
+          _typeHabitats.length,
+              (index) => _buildHabitat(context, _typeHabitats[index]),
+        ),
+      ),
+    );
+  }
+
+  _buildHabitat(BuildContext context, TypeHabitat typeHabitat) {
+    var icon = Icons.house;
+    switch (typeHabitat.id) {
+      case 2:
+        icon = Icons.apartment;
+        break;
+      default:
+        icon = Icons.home;
+    }
+
+    return Expanded(
+      child: Container(
+        height: 80,
+        decoration: BoxDecoration(
+          color: LocationStyle.backgroundColorPurple,
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        margin: const EdgeInsets.all(8.0),
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    HabitationList(isHouseList: typeHabitat.id == 1),
+              ),
+            );
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                color: Colors.white70,
+              ),
+              const SizedBox(width: 5),
+              Text(
+                typeHabitat.libelle,
+                style: LocationTextStyle.regularWhiteTextStyle,
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildDerniereLocation(BuildContext context) {
+    return Container(
+      height: 240,
+      child: ListView.builder(
+        itemCount: _habitations.length,
+        itemExtent: 220,
+        itemBuilder: (context, index) =>
+            _buildRow(_habitations[index], context),
+        scrollDirection: Axis.horizontal,
+      ),
+    );
+  }
+
+  _buildRow(Habitation habitation, BuildContext context) {
+    return Container(
+        width: 240,
+        margin: const EdgeInsets.all(4.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                habitation.image,
+                height: 150,
+                width: 240,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Text(
+              habitation.libelle,
+              style: LocationTextStyle.regularTextStyle,
+            ),
+            Row(
+              children: [
+                Icon(
+                  Icons.location_on_outlined,
+                  color: LocationStyle.colorPurple,
+                ),
+                Text(habitation.adresse,
+                    style: LocationTextStyle.regularTextStyle)
+              ],
+            ),
+            Text(
+              habitation.prixmois.toString(),
+              style: LocationTextStyle.boldTextStyle,
+            )
+          ],
+        ));
+  }
+}
