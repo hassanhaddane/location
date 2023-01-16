@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:location/services/habitation_service.dart';
+import 'package:location/share/location_style.dart';
+import 'package:location/share/location_text_style.dart';
+import 'package:location/views/habitation_list.dart';
 import 'package:tdlocation/models/habitation_service.dart';
 import 'package:tdlocation/share/location_style.dart';
 import 'package:tdlocation/share/location_text_style.dart';
@@ -28,10 +32,11 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final String title;
   final HabitationService habitationService = HabitationService();
+  final String title;
   late List<TypeHabitat> _typeHabitats;
   late List<Habitation> _habitations;
+
   MyHomePage({required this.title, Key? key}) : super(key: key) {
     _habitations = habitationService.getHabitationsTop10();
     _typeHabitats = habitationService.getTypeHabitats();
@@ -54,8 +59,6 @@ class MyHomePage extends StatelessWidget {
           )),
     );
   }
-
-
 
   _buildTypeHabitat(BuildContext context) {
     return Container(
@@ -95,7 +98,7 @@ class MyHomePage extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) =>
-                    HabitationList(isHouseList: typeHabitat.id == 1),
+                    HabitationList(typeHabitat.id == 1),
               ),
             );
           },
@@ -170,3 +173,4 @@ class MyHomePage extends StatelessWidget {
         ));
   }
 }
+

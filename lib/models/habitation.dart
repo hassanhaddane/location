@@ -8,5 +8,5 @@ class Habitation {
   double prixmois;
 
   Habitation(this.id, this.image, this.libelle, this.adresse, this.chambres,
-      this.superficie, this.prixmois);
+      this.superficie, this.prixmois, int i);
 }
