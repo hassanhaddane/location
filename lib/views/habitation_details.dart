@@ -9,6 +9,8 @@ import 'package:tdlocation/share/location_text_style.dart';
 import 'package:tdlocation/views/habitation_feature_widget.dart';
 import 'package:tdlocation/views/habitation_option.dart';
 
+import 'habitation_features_widget.dart';
+
 class HabitationDetails extends StatefulWidget {
   final Habitation _habitation;
 
