@@ -5,6 +5,7 @@ import 'package:tdlocation/models/habitation.dart';
 import 'package:tdlocation/views/habitation_feature_widget.dart';
 
 import 'habitation_details.dart';
+import 'habitation_features_widget.dart';
 import 'habitation_service.dart';
 
 class HabitationList extends StatelessWidget {
