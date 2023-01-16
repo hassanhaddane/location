@@ -27,3 +27,30 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class MyHomePage extends StatelessWidget {
+  final String title;
+  final HabitationService habitationService = HabitationService();
+  late List<TypeHabitat> _typeHabitats;
+  late List<Habitation> _habitations;
+  MyHomePage({required this.title, Key? key}) : super(key: key) {
+    _habitations = habitationService.getHabitationsTop10();
+    _typeHabitats = habitationService.getTypeHabitats();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Center(
+          child: Column(
+            children: [
+              const SizedBox(height: 30),
+              _buildTypeHabitat(context),
+              const SizedBox(height: 20),
+              _buildDerniereLocation(context)
+            ],
+          )),
+    );
+  }
