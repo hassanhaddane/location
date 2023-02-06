@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:location/models/habitation.dart';
-import 'package:location/share/location_style.dart';
-import 'package:location/share/location_text_style.dart';
 import 'package:tdlocation/models/habitation.dart';
 import 'package:tdlocation/share/location_style.dart';
 import 'package:tdlocation/share/location_text_style.dart';
 import 'package:tdlocation/views/habitation_feature_widget.dart';
 import 'package:tdlocation/views/habitation_option.dart';
 
-import 'habitation_features_widget.dart';
-
 class HabitationDetails extends StatefulWidget {
   final Habitation _habitation;
-
   const HabitationDetails(this._habitation, {Key? key}) : super(key: key);
 
   @override
@@ -69,23 +63,22 @@ class _HabitationDetailsState extends State<HabitationDetails> {
   }
 
   _buildItems() {
-    var width = (MediaQuery.of(context).size.width / 2) - 15;
     return Wrap(
         spacing: 2.0,
         children: Iterable.generate(
             widget._habitation.options.length,
-            (i) => Container(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  margin: const EdgeInsets.all(2.0),
-                  child: Column(
-                    children: [
-                      Text(widget._habitation.options[i].libelle,
-                          style: LocationTextStyle.boldTextStyle),
-                      Text(widget._habitation.options[i].description,
-                          style: LocationTextStyle.regularGreyTextStyle),
-                    ],
-                  ),
-                )).toList());
+                (i) => Container(
+              padding: const EdgeInsets.only(left: 15.0),
+              margin: const EdgeInsets.all(2.0),
+              child: Column(
+                children: [
+                  Text(widget._habitation.options[i].libelle,
+                      style: LocationTextStyle.boldTextStyle),
+                  Text(widget._habitation.options[i].description,
+                      style: LocationTextStyle.regularGreyTextStyle),
+                ],
+              ),
+            )).toList());
   }
 
   _buildOptionsPayantes() {
@@ -93,18 +86,18 @@ class _HabitationDetailsState extends State<HabitationDetails> {
         spacing: 2.0,
         children: Iterable.generate(
             widget._habitation.optionsPayantes.length,
-            (i) => Container(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  margin: const EdgeInsets.all(2.0),
-                  child: Column(
-                    children: [
-                      Text(widget._habitation.optionsPayantes[i].libelle,
-                          style: LocationTextStyle.boldTextStyle),
-                      Text(
-                          '${widget._habitation.optionsPayantes[i].prix.toString()} €',
-                          style: LocationTextStyle.regularGreyTextStyle),
-                    ],
-                  ),
-                )).toList());
+                (i) => Container(
+              padding: const EdgeInsets.only(left: 15.0),
+              margin: const EdgeInsets.all(2.0),
+              child: Column(
+                children: [
+                  Text(widget._habitation.optionsPayantes[i].libelle,
+                      style: LocationTextStyle.boldTextStyle),
+                  Text(
+                      '${widget._habitation.optionsPayantes[i].prix.toString()} €',
+                      style: LocationTextStyle.regularGreyTextStyle),
+                ],
+              ),
+            )).toList());
   }
 }

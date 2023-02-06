@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:location/share/habitation_option.dart';
 import 'package:tdlocation/views/habitation_option.dart';
 
 import '../models/habitation.dart';
 
 class HabitationFeatureWidget extends StatelessWidget {
   final Habitation _habitation;
-
   const HabitationFeatureWidget(this._habitation, {Key? key}) : super(key: key);
 
   @override

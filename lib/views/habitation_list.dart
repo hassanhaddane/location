@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:location/models/habitation.dart';
 import 'package:tdlocation/models/habitation.dart';
 import 'package:tdlocation/views/habitation_feature_widget.dart';
 
 import 'habitation_details.dart';
-import 'habitation_features_widget.dart';
 import 'habitation_service.dart';
 
 class HabitationList extends StatelessWidget {
   final bool isHouseList;
   final HabitationService habitationService = HabitationService();
   late List<Habitation> _habitations;
-
   HabitationList({Key? key, required this.isHouseList}) : super(key: key) {
     _habitations = isHouseList
         ? habitationService.getMaisons()
@@ -27,11 +24,11 @@ class HabitationList extends StatelessWidget {
         ),
         body: Center(
             child: ListView.builder(
-          itemCount: _habitations.length,
-          itemBuilder: (context, index) =>
-              _buildRow(_habitations[index], context),
-          itemExtent: 285,
-        )));
+              itemCount: _habitations.length,
+              itemBuilder: (context, index) =>
+                  _buildRow(_habitations[index], context),
+              itemExtent: 285,
+            )));
   }
 
   _buildRow(Habitation habitation, BuildContext context) {
