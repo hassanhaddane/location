@@ -45,13 +45,13 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
           child: Column(
-            children: [
-              const SizedBox(height: 30),
-              _buildTypeHabitat(context),
-              const SizedBox(height: 20),
-              _buildDerniereLocation(context)
-            ],
-          )),
+        children: [
+          const SizedBox(height: 30),
+          _buildTypeHabitat(context),
+          const SizedBox(height: 20),
+          _buildDerniereLocation(context)
+        ],
+      )),
     );
   }
 
@@ -63,7 +63,7 @@ class MyHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: List.generate(
           _typeHabitats.length,
-              (index) => _buildHabitat(context, _typeHabitats[index]),
+          (index) => _buildHabitat(context, _typeHabitats[index]),
         ),
       ),
     );

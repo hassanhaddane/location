@@ -541,7 +541,7 @@ class HabitationsData {
 
   static List<Habitation> buildList() {
     List<Habitation> list =
-    data.map((item) => Habitation.fromJson(item)).toList();
+        data.map((item) => Habitation.fromJson(item)).toList();
     return list;
   }
 }

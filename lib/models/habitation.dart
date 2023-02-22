@@ -28,7 +28,7 @@ class Habitation {
       this.lits,
       this.salleBains,
       {this.options = const [],
-        this.optionsPayantes = const []});
+      this.optionsPayantes = const []});
 
   Habitation.fromJson(Map<String, dynamic> json)
       : id = json['id'],
@@ -44,13 +44,13 @@ class Habitation {
         salleBains = json['sdb'],
         options = json['items'] != null
             ? (json['items'] as List)
-            .map<Option>((item) => Option.fromJson(item))
-            .toList()
+                .map<Option>((item) => Option.fromJson(item))
+                .toList()
             : [Option(0, 'Aucune option disponible')],
         optionsPayantes = json['optionspayantes'] != null
             ? (json['optionspayantes'] as List)
-            .map<OptionPayante>((item) => OptionPayante.fromJson(item))
-            .toList()
+                .map<OptionPayante>((item) => OptionPayante.fromJson(item))
+                .toList()
             : [OptionPayante(0, 'Aucune option payante disponible')];
 }
 

@@ -24,11 +24,11 @@ class HabitationList extends StatelessWidget {
         ),
         body: Center(
             child: ListView.builder(
-              itemCount: _habitations.length,
-              itemBuilder: (context, index) =>
-                  _buildRow(_habitations[index], context),
-              itemExtent: 285,
-            )));
+          itemCount: _habitations.length,
+          itemBuilder: (context, index) =>
+              _buildRow(_habitations[index], context),
+          itemExtent: 285,
+        )));
   }
 
   _buildRow(Habitation habitation, BuildContext context) {

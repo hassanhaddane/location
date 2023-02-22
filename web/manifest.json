@@ -1,6 +1,6 @@
 {
-    "name": "location",
-    "short_name": "location",
+    "name": "tdlocation",
+    "short_name": "tdlocation",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

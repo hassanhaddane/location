@@ -67,18 +67,18 @@ class _HabitationDetailsState extends State<HabitationDetails> {
         spacing: 2.0,
         children: Iterable.generate(
             widget._habitation.options.length,
-                (i) => Container(
-              padding: const EdgeInsets.only(left: 15.0),
-              margin: const EdgeInsets.all(2.0),
-              child: Column(
-                children: [
-                  Text(widget._habitation.options[i].libelle,
-                      style: LocationTextStyle.boldTextStyle),
-                  Text(widget._habitation.options[i].description,
-                      style: LocationTextStyle.regularGreyTextStyle),
-                ],
-              ),
-            )).toList());
+            (i) => Container(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  margin: const EdgeInsets.all(2.0),
+                  child: Column(
+                    children: [
+                      Text(widget._habitation.options[i].libelle,
+                          style: LocationTextStyle.boldTextStyle),
+                      Text(widget._habitation.options[i].description,
+                          style: LocationTextStyle.regularGreyTextStyle),
+                    ],
+                  ),
+                )).toList());
   }
 
   _buildOptionsPayantes() {
@@ -86,18 +86,18 @@ class _HabitationDetailsState extends State<HabitationDetails> {
         spacing: 2.0,
         children: Iterable.generate(
             widget._habitation.optionsPayantes.length,
-                (i) => Container(
-              padding: const EdgeInsets.only(left: 15.0),
-              margin: const EdgeInsets.all(2.0),
-              child: Column(
-                children: [
-                  Text(widget._habitation.optionsPayantes[i].libelle,
-                      style: LocationTextStyle.boldTextStyle),
-                  Text(
-                      '${widget._habitation.optionsPayantes[i].prix.toString()} €',
-                      style: LocationTextStyle.regularGreyTextStyle),
-                ],
-              ),
-            )).toList());
+            (i) => Container(
+                  padding: const EdgeInsets.only(left: 15.0),
+                  margin: const EdgeInsets.all(2.0),
+                  child: Column(
+                    children: [
+                      Text(widget._habitation.optionsPayantes[i].libelle,
+                          style: LocationTextStyle.boldTextStyle),
+                      Text(
+                          '${widget._habitation.optionsPayantes[i].prix.toString()} €',
+                          style: LocationTextStyle.regularGreyTextStyle),
+                    ],
+                  ),
+                )).toList());
   }
 }
